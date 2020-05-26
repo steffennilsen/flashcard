@@ -1,25 +1,33 @@
 <template>
-  <v-card class="mx-auto" outlined>
-    <v-card-title v-show="model.title">{{ model.title }}</v-card-title>
-    <v-card-subtitle v-show="model.subtitle">{{
-      model.subtitle
-    }}</v-card-subtitle>
+  <div class="text-center">
+    <v-card class="mx-auto my-6" outlined>
+      <v-card-title v-show="model.title">{{ model.title }}</v-card-title>
+      <v-card-subtitle v-show="model.subtitle">{{
+        model.subtitle
+      }}</v-card-subtitle>
 
-    <v-card-text>
-    <div class="card-container">
-      <div class="card">
-        <div class="card-front">
-          <div v-show="model.textA" class="display-2">{{ model.textA }}</div>
+      <v-card-text>
+        <div class="card-container">
+          <div class="card" v-bind:class="{ rotate: showSideB }">
+            <div class="card-front">
+              <div class="display-2">
+                {{ model.textA }}
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="display-2">
+                {{ model.textB }}
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card-back">
-          <div v-show="model.textB" class="display-2">{{ model.textB }}</div>
-        </div>
-      </div>
-    </div>
-    </v-card-text>
+      </v-card-text>
 
-    <v-card-actions>Action</v-card-actions>
-  </v-card>
+      <v-card-actions>
+        <v-btn color="primary" v-on:click="flip">Flip</v-btn>
+      </v-card-actions>
+    </v-card>
+  </div>
 </template>
 
 <script lang="ts">
@@ -29,10 +37,19 @@ import { ICard } from "../model/deck";
 @Component
 export default class Card extends Vue {
   @Prop({ required: true }) model!: ICard;
+  public showSideB = false;
+
+  public flip() {
+    this.showSideB = !this.showSideB;
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.v-card {
+  width: 800px;
+}
+
 .card-container {
   background-color: transparent;
   perspective: 1000px;
@@ -47,7 +64,7 @@ export default class Card extends Vue {
   transform-style: preserve-3d;
 }
 
-.card-container:hover .card {
+.card.rotate {
   transform: rotateY(180deg);
 }
 
