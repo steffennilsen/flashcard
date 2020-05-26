@@ -9,10 +9,10 @@
     <div class="card-container">
       <div class="card">
         <div class="card-front">
-          <div v-show="model.textA">{{ model.textA }}</div>
+          <div v-show="model.textA" class="display-2">{{ model.textA }}</div>
         </div>
         <div class="card-back">
-          <div v-show="model.textB">{{ model.textB }}</div>
+          <div v-show="model.textB" class="display-2">{{ model.textB }}</div>
         </div>
       </div>
     </div>
