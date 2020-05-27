@@ -23,4 +23,8 @@ export default class App extends Vue {
   body {
     font-family: Roboto;
   }
+
+  .w100 {
+    width: 100%;
+  }
 </style>

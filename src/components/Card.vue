@@ -8,19 +8,39 @@
 
       <v-card-text class="display-2">
         <div class="transform-container">
-          <div class="tranform-inner-container" v-bind:class="{ rotate: showSideB }">
+          <div
+            class="tranform-inner-container"
+            v-bind:class="{ rotate: showSideB }"
+          >
             <div class="transform-front">
-                {{ model.textA }}
+              {{ model.textA }}
             </div>
             <div class="transform-back">
-                {{ model.textB }}
+              {{ model.textB }}
             </div>
           </div>
         </div>
       </v-card-text>
 
-      <v-card-actions class="justify-center">
-        <v-btn color="primary" v-on:click="flip" class="align-self-stretch">Flip</v-btn>
+      <v-card-actions>
+        <v-container>
+          <v-row cols="12" v-show="!showSideB">
+            <v-col lg="12">
+              <v-btn color="primary" v-on:click="flip" class="w100">Flip</v-btn>
+            </v-col>
+          </v-row>
+          <v-row cols="12" v-show="showSideB">
+            <v-col lg="6">
+              <v-btn color="success" v-on:click="flip" class="w100">Easy</v-btn>
+            </v-col>
+            <v-col lg="6">
+              <v-btn color="info" v-on:click="flip" class="w100">Again</v-btn>
+            </v-col>
+            <v-col lg="6">
+              <v-btn color="error" v-on:click="flip" class="w100">Hard</v-btn>
+            </v-col>
+          </v-row>
+        </v-container>
       </v-card-actions>
     </v-card>
   </div>
