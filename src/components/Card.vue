@@ -19,8 +19,8 @@
         </div>
       </v-card-text>
 
-      <v-card-actions>
-        <v-btn color="primary" v-on:click="flip">Flip</v-btn>
+      <v-card-actions class="justify-center">
+        <v-btn color="primary" v-on:click="flip" class="align-self-stretch">Flip</v-btn>
       </v-card-actions>
     </v-card>
   </div>
