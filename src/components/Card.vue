@@ -1,23 +1,19 @@
 <template>
   <div class="text-center">
-    <v-card class="mx-auto my-6" outlined>
+    <v-card class="mx-auto my-6 card" outlined>
       <v-card-title v-show="model.title">{{ model.title }}</v-card-title>
       <v-card-subtitle v-show="model.subtitle">{{
         model.subtitle
       }}</v-card-subtitle>
 
-      <v-card-text>
-        <div class="card-container">
-          <div class="card" v-bind:class="{ rotate: showSideB }">
-            <div class="card-front">
-              <div class="display-2">
+      <v-card-text class="display-2">
+        <div class="transform-container">
+          <div class="tranform-inner-container" v-bind:class="{ rotate: showSideB }">
+            <div class="transform-front">
                 {{ model.textA }}
-              </div>
             </div>
-            <div class="card-back">
-              <div class="display-2">
+            <div class="transform-back">
                 {{ model.textB }}
-              </div>
             </div>
           </div>
         </div>
@@ -46,16 +42,17 @@ export default class Card extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.v-card {
-  width: 800px;
+.card {
+  max-width: 600px;
 }
 
-.card-container {
+.transform-container {
   background-color: transparent;
   perspective: 1000px;
+  min-height: 200px;
 }
 
-.card {
+.tranform-inner-container {
   position: relative;
   width: 100%;
   height: 100%;
@@ -64,23 +61,29 @@ export default class Card extends Vue {
   transform-style: preserve-3d;
 }
 
-.card.rotate {
+.tranform-inner-container.rotate {
   transform: rotateY(180deg);
 }
 
-.card-front,
-.card-back {
+.transform-front,
+.transform-back {
+  margin-top: 12px;
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  font-size: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
 }
 
-.card-front {
+.transform-front {
 }
 
-.card-back {
+.transform-back {
   transform: rotateY(180deg);
 }
 </style>
