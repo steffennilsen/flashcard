@@ -30,13 +30,13 @@
             </v-col>
           </v-row>
           <v-row cols="12" v-show="showSideB">
-            <v-col lg="6">
+            <v-col lg="4">
               <v-btn color="success" v-on:click="flip" class="w100">Easy</v-btn>
             </v-col>
-            <v-col lg="6">
+            <v-col lg="4">
               <v-btn color="info" v-on:click="flip" class="w100">Again</v-btn>
             </v-col>
-            <v-col lg="6">
+            <v-col lg="4">
               <v-btn color="error" v-on:click="flip" class="w100">Hard</v-btn>
             </v-col>
           </v-row>

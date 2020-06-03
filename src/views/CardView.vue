@@ -15,7 +15,6 @@ import Card from "../components/Card.vue";
 export default class CardView extends Vue {
   model: ICard = {
     id: 'card_a',
-    style: "hiragana",
     textA: "あ",
     textB: "a"
   };

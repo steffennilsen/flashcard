@@ -6,12 +6,9 @@ export interface IDeck {
 
 export interface ICard {
   id: string;
-  style: sideStyle;
   img?: string;
   title?: string;
   subtitle?: string;
   textA: string;
   textB: string;
 }
-
-export type sideStyle = "hiragana" | "katakana" | "kanji" | "romanji";
